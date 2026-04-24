@@ -1,0 +1,169 @@
+/* === STYLES RIÊNG CHO TRANG CHI TIẾT ĐƠN HÀNG === */
+
+/* Timeline Trạng thái đơn hàng */
+.order-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* Đường kẻ ngang nối các bước */
+.order-timeline::before {
+    content: '';
+    position: absolute;
+    top: 18px; /* Căn chỉnh lại cho khớp giữa icon */
+    left: 40px;
+    right: 40px;
+    height: 4px;
+    background-color: #e9ecef;
+    z-index: 0;
+}
+
+.timeline-step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background-color: #fff; /* Nền trắng để che đường kẻ đi qua icon */
+    padding: 0 10px;
+    width: 25%; /* Chia đều 4 bước */
+}
+
+/* Icon tròn của từng bước */
+.step-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #e9ecef;
+    color: #6c757d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    border: 4px solid #fff; /* Viền trắng dày để tách khỏi đường kẻ */
+    box-shadow: 0 0 0 1px #e9ecef; /* Viền mỏng ngoài cùng */
+}
+
+.step-label {
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-weight: 600;
+}
+
+/* Trạng thái Active (Đã hoàn thành bước này) */
+.timeline-step.active .step-icon {
+    background-color: var(--bs-primary);
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
+    border-color: #fff;
+}
+
+.timeline-step.active .step-label {
+    color: var(--bs-primary);
+}
+
+/* Trạng thái Hủy (Màu đỏ) */
+.timeline-step.cancelled .step-icon {
+    background-color: #dc3545;
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.2);
+}
+.timeline-step.cancelled .step-label {
+    color: #dc3545;
+}
+
+/* Card thông tin (Info Box) */
+.info-box {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+    border: 1px solid #e9ecef;
+}
+
+.info-box-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #495057;
+    text-transform: uppercase;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-row {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start; /* Căn trên để nếu nội dung dài không bị lệch */
+}
+
+.info-label {
+    font-weight: 600;
+    width: 110px; /* Cố định chiều rộng nhãn */
+    flex-shrink: 0;
+    color: #6c757d;
+}
+
+/* Bảng chi tiết sản phẩm */
+.table-detail th {
+    background-color: #eef2f7;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #555;
+    padding: 12px 15px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table-detail td {
+    padding: 15px;
+    vertical-align: middle;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.product-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+/* Footer tổng tiền */
+.detail-footer {
+    background-color: #fff;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 25px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.summary-item.total {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #dc3545;
+    border-top: 2px dashed #dee2e6;
+    padding-top: 15px;
+    margin-top: 15px;
+    align-items: center;
+}

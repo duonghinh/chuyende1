@@ -1,0 +1,128 @@
+/* === STYLES CHO TRANG LỊCH SỬ ĐƠN HÀNG === */
+
+/* Khung Card chính */
+.card-order {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Table Styles */
+.table-order thead th {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 15px;
+    border-bottom: 2px solid #e9ecef;
+    white-space: nowrap;
+}
+
+.table-order tbody td {
+    padding: 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f3f5;
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+/* Mã đơn hàng */
+.order-id {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-weight: 600;
+    color: var(--bs-primary);
+    background: rgba(13, 110, 253, 0.05);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Tổng tiền */
+.total-price {
+    font-weight: 700;
+    color: #212529;
+}
+
+/* Trạng thái thanh toán */
+.payment-status {
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.payment-status.paid { color: #198754; }
+.payment-status.unpaid { color: #fd7e14; }
+
+/* === BADGES TRẠNG THÁI ĐƠN HÀNG (CUSTOM) === */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Chờ xác nhận (Vàng nhạt) */
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Đang xử lý (Xanh dương nhạt) */
+.status-processing {
+    background-color: #cff4fc;
+    color: #055160;
+}
+
+/* Đang giao hàng (Tím nhạt) */
+.status-shipping {
+    background-color: #e0cffc;
+    color: #4c0bce;
+}
+
+/* Hoàn thành (Xanh lá nhạt) */
+.status-completed {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+/* Đã hủy (Đỏ nhạt) */
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+/* Default */
+.status-default {
+    background-color: #e2e3e5;
+    color: #383d41;
+}
+
+/* Nút Xem chi tiết */
+.btn-view-detail {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f3f5;
+    color: #495057;
+    transition: all 0.2s;
+}
+
+.btn-view-detail:hover {
+    background-color: var(--bs-primary);
+    color: #fff;
+    transform: translateX(3px); /* Hiệu ứng dịch chuyển nhẹ */
+}
+
+/* Phân trang ở Footer */
+.card-order .card-footer {
+    background: #fff;
+    border-top: 1px solid #f1f3f5;
+}

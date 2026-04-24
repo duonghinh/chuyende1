@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # Service 1: PHP App (Chứa mã nguồn Laravel)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - laravel
+    # Lệnh chờ để giữ container sống cho việc cài đặt ban đầu
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    #command: tail -f /dev/null
+
+  # Service 2: MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: laravel_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel_db
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: root
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - laravel
+
+  # Service 3: phpMyAdmin (Quản lý DB)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: laravel_pma
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - laravel
+
+volumes:
+  dbdata:
+
+networks:
+  laravel:

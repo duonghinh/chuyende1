@@ -1,0 +1,211 @@
+/* === CHATBOX WIDGET === */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+.chat-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0d6efd, #0099ff);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.chat-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.6);
+}
+.chat-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 360px;
+    height: 500px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.1);
+    animation: slideIn 0.3s ease-out;
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-header {
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    scroll-behavior: smooth;
+}
+.chat-footer {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background: white;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Tin nhắn */
+.message {
+    margin-bottom: 12px;
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.message.user {
+    background-color: #0d6efd;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+.message.bot {
+    background-color: #ffffff;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #eee;
+}
+.message.bot a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 600;
+}
+.message.bot a:hover {
+    text-decoration: underline;
+}
+
+.typing-indicator {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 10px;
+    display: none;
+    padding-left: 15px;
+    font-style: italic;
+}
+
+/* === THẺ SẢN PHẨM TRONG CHAT === */
+.chat-product-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 10px 5px 15px 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    scrollbar-width: thin;
+}
+.chat-product-list::-webkit-scrollbar { height: 6px; }
+.chat-product-list::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 10px; }
+
+.chat-product-card {
+    min-width: 160px;
+    max-width: 160px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.2s;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+.chat-product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.chat-product-img-wrapper {
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 1px solid #f5f5f5;
+}
+.chat-product-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.chat-product-info {
+    padding: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-product-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 34px;
+    line-height: 1.3;
+}
+
+.chat-product-price {
+    color: #dc3545;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+.chat-product-original-price {
+    font-size: 0.75rem;
+    color: #6c757d;
+    text-decoration: line-through;
+    margin-left: 3px;
+}
+
+.chat-product-btn {
+    margin-top: auto;
+    display: block;
+    text-align: center;
+    background: #e7f1ff;
+    color: #0d6efd;
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.chat-product-btn:hover {
+    background: #0d6efd;
+    color: white;
+}
