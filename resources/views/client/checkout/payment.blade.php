@@ -20,7 +20,7 @@
                             @php
                                 $bankId = 'MB'; // Mã ngân hàng (MB, VCB, TCB...)
                                 $accountNo = '0386248487'; // Số tài khoản CỦA BẠN
-                                $accountName = 'PHAN TRUONG'; // Tên chủ tài khoản
+                                $accountName = 'HINH DUONG'; // Tên chủ tài khoản
                                 $amount = $order->total_amount;
                                 $content = 'DH' . $order->id; // Nội dung CK: DH123
                                 
